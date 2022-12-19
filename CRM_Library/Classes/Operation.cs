@@ -20,20 +20,46 @@ namespace CRM_Library.Classes
             Console.WriteLine("Author name: ");
             string author = Console.ReadLine();
 
-            Console.WriteLine("Category: ");
-            PrintEnums(typeof(Category));
-            int category = int.Parse(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("Category: ");
+                PrintEnums(typeof(Category));
+                int category = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Relase Year: ");
-            int year = int.Parse(Console.ReadLine());
+                if (category < 0 || category > (Enum.GetValues(typeof(Category)).Length) - 1)
+                {
+                    throw new Exception($"Category must be 0 - {(Enum.GetValues(typeof(Category)).Length) - 1}");
+                }
 
-            Book newBook = new Book(name, author, category, year);
+                Console.WriteLine("Relase Year: ");
+                int year = int.Parse(Console.ReadLine());
+                if (year < -10000 || year > DateTime.Now.Year)
+                {
+                    throw new Exception("Wrong release year");
+                }
 
-            books.Add(newBook);
+                Book newBook = new Book(name, author, category, year);
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Book was summed to stock");
-            Console.ResetColor();
+                books.Add(newBook);
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Book was summed to stock");
+                Console.ResetColor();
+            }
+            catch (FormatException)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Year must be number");
+                Console.ResetColor();
+                return;
+            }
+            catch (Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(e.Message);
+                Console.ResetColor();
+                return;
+            }
         }
 
         public static void RemoveBooks(ref List<Book> books)
@@ -103,15 +129,23 @@ namespace CRM_Library.Classes
                 }
                 else if (x == "3")
                 {
-                    Console.WriteLine("Insert searching minimum year: ");
-                    int userInputMin = int.Parse(Console.ReadLine());
+                    try
+                    {
+                        Console.WriteLine("Insert searching minimum year: ");
+                        int userInputMin = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Insert searching maximum year: ");
+                        int userInputMax = int.Parse(Console.ReadLine());
 
-                    Console.WriteLine("Insert searching maximum year: ");
-                    int userInputMax = int.Parse(Console.ReadLine());
-
-                    List<Book> searchedBooks = new List<Book>(books.Where(b => b.Year >= userInputMin && b.Year <= userInputMax));
-
-                    Display(searchedBooks);
+                        List<Book> searchedBooks = new List<Book>(books.Where(b => b.Year >= userInputMin && b.Year <= userInputMax));
+                        Display(searchedBooks);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("minimum and maximum years must be numbers");
+                        Console.ResetColor();
+                        return;
+                    }
                 }
                 else if (x == "4")
                 {
@@ -153,12 +187,16 @@ namespace CRM_Library.Classes
         {
             for (int i = 0; i < receipts.Count; i++)
             {
-                Console.WriteLine($"Receipt nr. {i}");
-                Console.WriteLine($"Hirer name: {receipts[i].HirerName}");
-                Console.WriteLine($"Price: {receipts[i].Price}");
-                Console.WriteLine($"Book Author: {receipts[i].BookAuthor}");
-                Console.WriteLine($"Book Name: {receipts[i].BookName}");
-                Console.WriteLine("-----------------------------------");
+                if (receipts[i].BookName != null)
+                {
+                    Console.WriteLine($"Receipt nr. {i}");
+                    Console.WriteLine($"Hirer name: {receipts[i].HirerName}");
+                    Console.WriteLine($"Price: {receipts[i].Price}");
+                    Console.WriteLine($"Book Author: {receipts[i].BookAuthor}");
+                    Console.WriteLine($"Book Name: {receipts[i].BookName}");
+                    Console.WriteLine("-----------------------------------");
+                }
+                
             }
 
             if (receipts.Count == 0)
@@ -173,14 +211,17 @@ namespace CRM_Library.Classes
         {
             for (int i = 0; i < invoices.Count; i++)
             {
-                Console.WriteLine($"Invoices nr. {i}");
-                Console.WriteLine($"Company name: {invoices[i].CompanyName}");
-                Console.WriteLine($"NIP number: {invoices[i].NipNumber}");
-                Console.WriteLine($"Hirer name: {invoices[i].HirerName}");
-                Console.WriteLine($"Price: {invoices[i].Price}");
-                Console.WriteLine($"Book Author: {invoices[i].BookAuthor}");
-                Console.WriteLine($"Book Name: {invoices[i].BookName}");
-                Console.WriteLine("-----------------------------------");
+                if (invoices[i].BookName != null)
+                {
+                    Console.WriteLine($"Invoices nr. {i}");
+                    Console.WriteLine($"Company name: {invoices[i].CompanyName}");
+                    Console.WriteLine($"NIP number: {invoices[i].NipNumber}");
+                    Console.WriteLine($"Hirer name: {invoices[i].HirerName}");
+                    Console.WriteLine($"Price: {invoices[i].Price}");
+                    Console.WriteLine($"Book Author: {invoices[i].BookAuthor}");
+                    Console.WriteLine($"Book Name: {invoices[i].BookName}");
+                    Console.WriteLine("-----------------------------------");
+                }
             }
 
             if (invoices.Count == 0)

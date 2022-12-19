@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Linq;
+using System.Text.RegularExpressions;
 
 namespace CRM_Library.Objects
 {
@@ -13,9 +14,23 @@ namespace CRM_Library.Objects
         public string HirerName { get; set; }
         public string BookName { get; set; }
         public string BookAuthor { get; set; }
-        public string Price { get; set; }
-        public static DateTime rentTime = DateTime.Now;
-        public static DateTime returnTime = rentTime.AddDays(30);
+        private string price;
+        public string Price
+        {
+            get { return price; }
+            set
+            {
+                if (!Regex.IsMatch(value, @"[0-9]") || Regex.IsMatch(value, @"[a-zA-Z]"))
+                {
+                    throw new ArgumentException("Price must be number");
+                }
+
+                price = value + "euro";
+            }
+        }
+
+        public DateTime rentTime = DateTime.Now;
+        public DateTime returnTime = DateTime.Now.AddDays(30);
 
 
         public virtual void PrintBill(ref List<Book> books, ref List<Book> rentedBooks)

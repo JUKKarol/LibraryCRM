@@ -1,7 +1,0 @@
-YourLibaryName
-YourStreet 23/8
----INVOICE---
-sdfsdfsdf NIP: 14231432114
-sddsffsdf, 
-Book: Doralynne Jahnel - McQ
-Rent Time: 17.12.2022 12:40:00, Return Time: 16.01.2023 12:40:00
