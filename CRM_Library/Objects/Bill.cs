@@ -1,4 +1,5 @@
 ﻿using System;
+using CRM_Library.Intefaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ using System.Text.RegularExpressions;
 
 namespace CRM_Library.Objects
 {
-    public abstract class Bill
+    public abstract class Bill : IBillProp
     {
         public string HirerName { get; set; }
         public string BookName { get; set; }
