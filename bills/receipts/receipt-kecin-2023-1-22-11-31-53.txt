@@ -1,6 +1,0 @@
-YourLibaryName
-YourStreet 23/8
-RECEIPT
-kecin, 1euro
-Book: F. Scott Fitzgerald - The Great Gatsby
-Rent Time: 22.01.2023 11:31:53, Return Time: 21.02.2023 11:31:53
