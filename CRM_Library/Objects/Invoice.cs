@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -78,7 +79,11 @@ namespace CRM_Library.Objects
 
                 string billBase = $"YourLibaryName\nYourStreet 23/8\n---INVOICE---\n{CompanyName} NIP: {NipNumber}\n{HirerName}, {Price}\nBook: {books[index].Author} - {books[index].Name}\nRent Time: {rentTime}, Return Time: {returnTime}";
 
-                File.WriteAllText($@"C:\Users\Admin\source\repos\CRM_Library\CRM_Library\bills\invoices\invoice-{HirerName}-{rentTime.Year}-{rentTime.Month}-{rentTime.Day}-{rentTime.Hour}-{rentTime.Minute}-{rentTime.Second}.txt", billBase);
+                string currentPath = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "..", "..", ".."));
+                string billPath = Path.Combine(currentPath, "bills", "invoices", $"invoice-{HirerName}-{rentTime.Year}-{rentTime.Month}-{rentTime.Day}-{rentTime.Hour}-{rentTime.Minute}-{rentTime.Second}.txt");
+                string billDirectory = Path.GetDirectoryName(billPath);
+                Directory.CreateDirectory(billDirectory);
+                File.WriteAllText(billPath, billBase);
 
                 rentedBooks.Add(books[index]);
                 books.RemoveAt(index);

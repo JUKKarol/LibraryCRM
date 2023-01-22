@@ -1,0 +1,7 @@
+YourLibaryName
+YourStreet 23/8
+---INVOICE---
+keicnspzoo NIP: 1234567890
+kecin, 4euro
+Book: F. Scott Fitzgerald - The Great Gatsby
+Rent Time: 22.01.2023 11:32:25, Return Time: 21.02.2023 11:32:25
