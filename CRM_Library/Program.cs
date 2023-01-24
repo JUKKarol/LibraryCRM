@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using CsvHelper;
 using CsvHelper.Configuration;
+using System.Reflection;
 
 namespace CRM_Library
 {
@@ -17,9 +18,12 @@ namespace CRM_Library
     {
         static void Main(string[] args)
         {
-            string stockPath = @"C:\Users\Admin\source\repos\CRM_Library\CRM_Library\Library_DataBase.csv";
+            string currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            currentDirectory = Path.GetDirectoryName(currentDirectory);
+            currentDirectory = Path.GetDirectoryName(currentDirectory);
+            string stockPath = Path.Combine(currentDirectory, @"Library_DataBase.csv");
             List<Book> books = LoadBooks(stockPath);
-            string rentedPath = @"C:\Users\Admin\source\repos\CRM_Library\CRM_Library\Library_Rented.csv";
+            string rentedPath = Path.Combine(currentDirectory, @"Library_Rented.csv");
             List<Book> rentedBooks = LoadBooks(rentedPath);
 
             List<Receipt> receipts = new List<Receipt>();
@@ -239,7 +243,7 @@ namespace CRM_Library
 
         static List<Book> LoadBooks(string csvPath)
         {
-            using (var reader = new StreamReader(csvPath))
+            using ( var reader = new StreamReader(csvPath))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Context.RegisterClassMap<BookMap>();

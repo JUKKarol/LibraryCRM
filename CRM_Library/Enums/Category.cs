@@ -8,8 +8,18 @@ namespace CRM_Library.Enums
 {
     public enum Category
     {
-        Classics,
-        Contemporary,
-        Fiction
+        Fantasy,
+        Encyclopedia,
+        Instructions,
+        Vocabulary,
+        Voluminous_book,
+        Romance,
+        Novelette,
+        Biography,
+        Horror,
+        Manual,
+        Teen,
+        Crime_fiction,
+        Sci_fi
     }
 }

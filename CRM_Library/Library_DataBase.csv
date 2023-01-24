@@ -1,83 +1,97 @@
 Name,Author,Category,Year
-The Great Gatsby,F. Scott Fitzgerald,Classics,1925
-Pride and Prejudice,Jane Austen,Classics,1813
-To Kill a Mockingbird,Harper Lee,Classics,1960
-The Catcher in the Rye,J.D. Salinger,Classics,1951
-Wuthering Heights,Emily Bront�,Classics,1847
-Moby-Dick,Herman Melville,Classics,1851
-The Grapes of Wrath,John Steinbeck,Classics,1939
-The Brothers Karamazov,Fyodor Dostoevsky,Classics,1880
-The Picture of Dorian Gray,Oscar Wilde,Classics,1890
-The Tale of Two Cities,Charles Dickens,Classics,1859
-The Adventures of Huckleberry Finn,Mark Twain,Classics,1884
-Heart of Darkness,Joseph Conrad,Classics,1899
-Ulysses,James Joyce,Classics,1922
-Frankenstein,Mary Shelley,Classics,1818
-The Invisible Man,H.G. Wells,Classics,1897
-The Time Machine,H.G. Wells,Classics,1895
-Dracula,Bram Stoker,Classics,1897
-The War of the Worlds,H.G. Wells,Classics,1898
-The Call of the Wild,Jack London,Classics,1903
-The Valley of the Bees,Frantisek Karel Capek,Classics,1936
-The Metamorphosis,Franz Kafka,Classics,1915
-The Canterbury Tales,Geoffrey Chaucer,Classics,1400
-The Divine Comedy,Dante Alighieri,Classics,1400
-One Hundred Years of Solitude,Gabriel Garc�a M�rquez,Contemporary,1967
-In Search of Lost Time,Marcel Proust,Contemporary,1927
-The Trial,Franz Kafka,Contemporary,1925
-The Castle,Franz Kafka,Contemporary,1926
-The Bell Jar,Sylvia Plath,Contemporary,1963
-Slaughterhouse-Five,Kurt Vonnegut,Contemporary,1969
-Catch-22,Joseph Heller,Contemporary,1961
-One Flew Over the Cuckoo's Nest,Ken Kesey,Contemporary,1962
-The Catcher in the Rye,J.D. Salinger,Contemporary,1951
-The Alchemist,Paulo Coelho,Contemporary,1988
-The Kite Runner,Khaled Hosseini,Contemporary,2003
-Angels and Demons,Dan Brown,Contemporary,2000
-Love in the Time of Cholera,Gabriel Garc�a M�rquez,Contemporary,1985
-The Color Purple,Alice Walker,Contemporary,1982
-The English Patient,Michael Ondaatje,Contemporary,1992
-The Time Traveler's Wife,Audrey Niffenegger,Contemporary,2003
-Atonement,Ian McEwan,Contemporary,2001
-The Curious Incident of the Dog in the Night-Time,Mark Haddon,Contemporary,2003
-The Alchemist,Paulo Coelho,Contemporary,1988
-The Handmaid's Tale,Margaret Atwood,Contemporary,1985
-The Color Purple,Alice Walker,Contemporary,1982
-One Hundred Years of Solitude,Gabriel Garc�a M�rquez,Contemporary,1967
-Brave New World,Aldous Huxley,Contemporary,1932
-To Kill a Mockingbird,Harper Lee,Contemporary,1960
-The Catcher in the Rye,J.D. Salinger,Contemporary,1951
-1984,George Orwell,Contemporary,1949
-Animal Farm,George Orwell,Contemporary,1945
-The Great Gatsby,F. Scott Fitzgerald,Contemporary,1925
-The Grapes of Wrath,John Steinbeck,Contemporary,1939
-Pride and Prejudice,Jane Austen,Contemporary,1813
-The Time Traveler's Wife,Audrey Niffenegger,Fiction,2003
-The Alchemist,Paulo Coelho,Fiction,1988
-Life of Pi,Yann Martel,Fiction,2001
-The Kite Runner,Khaled Hosseini,Fiction,2003
-Angels and Demons,Dan Brown,Fiction,2000
-Love in the Time of Cholera,Gabriel Garc�a M�rquez,Fiction,1985
-The English Patient,Michael Ondaatje,Fiction,1992
-Atonement,Ian McEwan,Fiction,2001
-The Time Traveler's Wife,Audrey Niffenegger,Fiction,2003
-The Alchemist,Paulo Coelho,Fiction,1988
-Life of Pi,Yann Martel,Fiction,2001
-The Kite Runner,Khaled Hosseini,Fiction,2003
-Angels and Demons,Dan Brown,Fiction,2000
-Love in the Time of Cholera,Gabriel Garc�a M�rquez,Fiction,1985
-The English Patient,Michael Ondaatje,Fiction,1992
-Atonement,Ian McEwan,Fiction,2001
-The Time Traveler's Wife,Audrey Niffenegger,Fiction,2003
-The Alchemist,Paulo Coelho,Fiction,1988
-Life of Pi,Yann Martel,Fiction,2001
-The Kite Runner,Khaled Hosseini,Fiction,2003
-Angels and Demons,Dan Brown,Fiction,2000
-Love in the Time of Cholera,Gabriel Garc�a M�rquez,Fiction,1985
-The English Patient,Michael Ondaatje,Fiction,1992
-Atonement,Ian McEwan,Fiction,2001
-The Time Traveler's Wife,Audrey Niffenegger,Fiction,2003
-The Alchemist,Paulo Coelho,Fiction,1988
-Life of Pi,Yann Martel,Fiction,2001
-The Da Vinci Code,Dan Brown,Fiction,2003
-Life of Pi,Yann Martel,Contemporary,2001
+WinniethePooh,A A Milne,Voluminous_book,1926
+The Hitchhiker's Guide to the Galaxy,Douglas Adams,Sci_fi,1979
+The Oxford English Dictionary,N/A,Encyclopedia,1884
+The Cambridge Advanced Learner's Dictionary,N/A,Vocabulary,1995
+The Chicago Manual of Style,N/A,Manual,1906
+The Lord of the Rings,J.R.R. Tolkien,Fantasy,1954
+The Great Gatsby,F. Scott Fitzgerald,Romance,1925
+The Silence of the Lambs,Thomas Harris,Horror,1988
+Harry Potter and the Sorcerers Stone,J.K. Rowling,Fantasy,1997
+Dune,Frank Herbert,Sci_fi,1965
+The Chronicles of Narnia,C.S. Lewis,Fantasy,1950
+The Hobbit,J.R.R. Tolkien,Fantasy,1937
+The Diary of a Young Girl,Anne Frank,Biography,1947
+The Red and the Black,Stendhal,Romance,1830
+The Time Machine,H.G. Wells,Sci_fi,1895
+The War of the Worlds,H.G. Wells,Sci_fi,1898
+The Call of the Wild,Jack London,Horror,1903
+The Nutcracker and the Mouse King,E.T.A. Hoffman,Instructions,1816
+The Chronicles of Prydain,Lloyd Alexander,Fantasy,1964
+Slaughterhouse-Five,Kurt Vonnegut,Sci_fi,1969
+The Handmaid's Tale,Margaret Atwood,Sci_fi,1985
+The Secret Life of Walter Mitty,James Thurber,Novelette,1939
+The Name of the Wind,Patrick Rothfuss,Fantasy,2007
+A Song of Ice and Fire,George R.R. Martin,Fantasy,1996
+The Lies of Locke Lamora,Scott Lynch,Fantasy,2006
+The Yellow Wallpaper,Charlotte Perkins Gilman,Horror,1892
+The Strange Case of Dr. Jekyll and Mr. Hyde,Robert Louis Stevenson,Horror,1886
+The Picture of Dorian Gray,Oscar Wilde,Horror,1890
+The Secret Life of Bees,Sue Monk Kidd,Romance,2002
+The Death of Ivan Ilyich,Leo Tolstoy,Novelette,1886
+Wuthering Heights,Emily Bronte,Romance,1847
+The Divine Comedy,Dante Alighieri,Instructions,1308
+Pride and Prejudice,Jane Austen,Romance,1813
+Moby-Dick,Herman Melville,Novelette,1851
+The Trial,Franz Kafka,Horror,1925
+The Metamorphosis,Franz Kafka,Horror,1915
+Brave New World,Aldous Huxley,Sci_fi,1932
+The Hitchhiker's Guide to the Galaxy,Douglas Adams,Sci_fi,1979
+Ender's Game,Orson Scott Card,Sci_fi,1985
+The Left Hand of Darkness,Ursula K. Le Guin,Sci_fi,1969
+The Road,Cormac McCarthy,Horror,2006
+The Shining,Stephen King,Horror,1977
+The Shining,Stephen King,Horror,1977
+Carrie,Stephen King,Horror,1974
+The Dark Tower,Stephen King,Fantasy,1982
+The Wheel of Time,Robert Jordan,Fantasy,1990
+The First Law Trilogy,Joe Abercrombie,Fantasy,2006
+American Gods,Neil Gaiman,Fantasy,2001
+The Ocean at the End of the Lane,Neil Gaiman,Fantasy,2013
+The House on Mango Street,Sandra Cisneros,Romance,1984
+One Hundred Years of Solitude,Gabriel Garcia Marquez,Romance,1967
+The Alchemist,Paulo Coelho,Romance,1988
+The Bell Jar,Sylvia Plath,Horror,1963
+The Handmaid's Tale,Margaret Atwood,Sci_fi,1985
+The Color Purple,Alice Walker,Romance,1982
+The Kite Runner,Khaled Hosseini,Romance,2003
+Animals Farm,George Orwell,Sci_fi,1945
+WinniethePooh,A A Milne,Voluminous_book,1926
+The Catcher in the Rye,J. D. Salinger,Voluminous_book,1951
+The Hitchhiker's Guide to the Galaxy,Douglas Adams,Sci_fi,1979
+The Oxford English Dictionary,N/A,Encyclopedia,1884
+The Cambridge Advanced Learner's Dictionary,N/A,Vocabulary,1995
+The Chicago Manual of Style,N/A,Manual,1906
+The Lord of the Rings,J.R.R. Tolkien,Fantasy,1954
+The Great Gatsby,F. Scott Fitzgerald,Romance,1925
+The Silence of the Lambs,Thomas Harris,Horror,1988
+Harry Potter and the Sorcerers Stone,J.K. Rowling,Fantasy,1997
+Dune,Frank Herbert,Sci_fi,1965
+The Chronicles of Narnia,C.S. Lewis,Fantasy,1950
+The Hobbit,J.R.R. Tolkien,Fantasy,1937
+The Diary of a Young Girl,Anne Frank,Biography,1947
+The Red and the Black,Stendhal,Romance,1830
+The Time Machine,H.G. Wells,Sci_fi,1895
+The War of the Worlds,H.G. Wells,Sci_fi,1898
+The Call of the Wild,Jack London,Horror,1903
+The Nutcracker and the Mouse King,E.T.A. Hoffman,Instructions,1816
+The Chronicles of Prydain,Lloyd Alexander,Fantasy,1964
+Slaughterhouse-Five,Kurt Vonnegut,Sci_fi,1969
+Ender's Game,Orson Scott Card,Sci_fi,1985
+The Left Hand of Darkness,Ursula K. Le Guin,Sci_fi,1969
+The Road,Cormac McCarthy,Horror,2006
+The Name of the Wind,Patrick Rothfuss,Fantasy,2007
+A Song of Ice and Fire,George R.R. Martin,Fantasy,1996
+The Lies of Locke Lamora,Scott Lynch,Fantasy,2006
+The Yellow Wallpaper,Charlotte Perkins Gilman,Horror,1892
+The Strange Case of Dr. Jekyll and Mr. Hyde,Robert Louis Stevenson,Horror,1886
+The Picture of Dorian Gray,Oscar Wilde,Horror,1890
+The Secret Life of Bees,Sue Monk Kidd,Romance,2002
+The Death of Ivan Ilyich,Leo Tolstoy,Novelette,1886
+Wuthering Heights,Emily Bronte,Romance,1847
+The Divine Comedy,Dante Alighieri,Instructions,1308
+Pride and Prejudice,Jane Austen,Romance,1813
+Moby-Dick,Herman Melville,Novelette,1851
+The Trial,Franz Kafka,Horror,1925
+The Metamorphosis,Franz Kafka,Horror,1915
+Brave New World,Aldous Huxley,Sci_fi,1932

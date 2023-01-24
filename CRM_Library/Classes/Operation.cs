@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CRM_Library.Objects;
 using CRM_Library.Classes;
 using CRM_Library.Enums;
+using System.Reflection;
 
 namespace CRM_Library.Classes
 {
@@ -189,7 +190,7 @@ namespace CRM_Library.Classes
             {
                 if (receipts[i].BookName != null)
                 {
-                    Console.WriteLine($"Receipt nr. {i}");
+                    Console.WriteLine($"Receipt nr. {i+1}");
                     Console.WriteLine($"Hirer name: {receipts[i].HirerName}");
                     Console.WriteLine($"Price: {receipts[i].Price}");
                     Console.WriteLine($"Book Author: {receipts[i].BookAuthor}");
@@ -213,7 +214,7 @@ namespace CRM_Library.Classes
             {
                 if (invoices[i].BookName != null)
                 {
-                    Console.WriteLine($"Invoices nr. {i}");
+                    Console.WriteLine($"Invoices nr. {i+1}");
                     Console.WriteLine($"Company name: {invoices[i].CompanyName}");
                     Console.WriteLine($"NIP number: {invoices[i].NipNumber}");
                     Console.WriteLine($"Hirer name: {invoices[i].HirerName}");
@@ -234,8 +235,11 @@ namespace CRM_Library.Classes
 
         public static void Save(List<Book> stockBooks, List<Book> rentedBooks)
         {
-            string stockPath = @"C:\Users\Admin\source\repos\CRM_Library\CRM_Library\Library_DataBase.csv";
-            string rentedPath = @"C:\Users\Admin\source\repos\CRM_Library\CRM_Library\Library_Rented.csv";
+            string currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            currentDirectory = Path.GetDirectoryName(currentDirectory);
+            currentDirectory = Path.GetDirectoryName(currentDirectory);
+            string stockPath = Path.Combine(currentDirectory, @"Library_DataBase.csv");
+            string rentedPath = Path.Combine(currentDirectory, @"Library_Rented.csv");
             string columns = "Name,Author,Category,Year";
 
             using (StreamWriter sw = new StreamWriter(rentedPath))
