@@ -1,4 +1,4 @@
-namespace LibraryCRM
+namespace LibraryCRM.API
 {
     public class WeatherForecast
     {
