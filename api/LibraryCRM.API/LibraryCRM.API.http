@@ -1,6 +1,22 @@
-@LibraryCRM.API_HostAddress = http://localhost:5041
+# @host = https://localhost
+@host = https://localhost
+@port = 7127
 
-GET {{LibraryCRM.API_HostAddress}}/weatherforecast/
+@LibraryCRM.API_HostAddress = https://localhost:7127
+
+GET {{LibraryCRM.API_HostAddress}}/WeatherForecast
 Accept: application/json
+ProjectUrl: {{$projectUrl}}
+Guid: {{$guid}}
+LocalDate: {{$datetime iso8601}}
+Random-int: {{$randomInt}}
+
+###
+
+GET {{LibraryCRM.API_HostAddress}}/WeatherForecast
+
+###
+
+GET {{LibraryCRM.API_HostAddress}}/generate?resultsCount=1&minTemp=1&maxTemp=100
 
 ###

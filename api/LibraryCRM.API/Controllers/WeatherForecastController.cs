@@ -29,5 +29,29 @@ namespace LibraryCRM.API.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost("/generate")]
+        public async Task<IActionResult> GenrateWeather([FromQuery] int resultsCount, [FromBody] int minTemp, [FromBody] int maxTemp)
+        {
+            var result = Enumerable.Range(1, resultsCount).Select(index => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(minTemp, maxTemp),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            })
+            .ToList();
+
+            if (result.Any(r => r.TemperatureC > maxTemp))
+            {
+                return BadRequest();
+            }
+
+            if (result.Count < 0)
+            {
+                return BadRequest();
+            }
+
+            return Ok(result);
+        }
     }
 }
