@@ -13,10 +13,12 @@ Random-int: {{$randomInt}}
 
 ###
 
-GET {{LibraryCRM.API_HostAddress}}/WeatherForecast
+POST {{LibraryCRM.API_HostAddress}}/generate?resultsCount=10
+Content-Type: application/json
 
-###
-
-GET {{LibraryCRM.API_HostAddress}}/generate?resultsCount=1&minTemp=1&maxTemp=100
+{
+    "min": -10,
+    "max": 20
+}
 
 ###
