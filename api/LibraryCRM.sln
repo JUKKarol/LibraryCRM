@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryCRM.API", "LibraryCRM.API\LibraryCRM.API.csproj", "{DD470559-C29D-49C2-B258-147DAF3B092F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryCRM.API", "LibraryCRM.API\LibraryCRM.API.csproj", "{DD470559-C29D-49C2-B258-147DAF3B092F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryCRM.Domain", "LibraryCRM.Domain\LibraryCRM.Domain.csproj", "{54EE1B7F-4DD2-49A9-A1DC-9110EDDB9502}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryCRM.Application", "LibraryCRM.Application\LibraryCRM.Application.csproj", "{0C9868A7-EDDA-40E5-B318-08F2C348EE5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryCRM.Infrastructure", "LibraryCRM.Infrastructure\LibraryCRM.Infrastructure.csproj", "{D4BFCBF2-BAAD-4D7C-A07C-866975F10641}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{DD470559-C29D-49C2-B258-147DAF3B092F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD470559-C29D-49C2-B258-147DAF3B092F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD470559-C29D-49C2-B258-147DAF3B092F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54EE1B7F-4DD2-49A9-A1DC-9110EDDB9502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54EE1B7F-4DD2-49A9-A1DC-9110EDDB9502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54EE1B7F-4DD2-49A9-A1DC-9110EDDB9502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54EE1B7F-4DD2-49A9-A1DC-9110EDDB9502}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C9868A7-EDDA-40E5-B318-08F2C348EE5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C9868A7-EDDA-40E5-B318-08F2C348EE5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C9868A7-EDDA-40E5-B318-08F2C348EE5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C9868A7-EDDA-40E5-B318-08F2C348EE5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4BFCBF2-BAAD-4D7C-A07C-866975F10641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4BFCBF2-BAAD-4D7C-A07C-866975F10641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4BFCBF2-BAAD-4D7C-A07C-866975F10641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4BFCBF2-BAAD-4D7C-A07C-866975F10641}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
