@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryCRM.Domain.Entities
 {
-    internal class RentHistory
+    public class RentHistory
     {
         public Guid Id { get; set; }
         public DateTime RentStart { get; set; }

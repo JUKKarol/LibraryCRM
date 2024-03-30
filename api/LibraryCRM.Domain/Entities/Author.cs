@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryCRM.Domain.Entities
 {
-    internal class Author
+    public class Author
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; } = default!;
