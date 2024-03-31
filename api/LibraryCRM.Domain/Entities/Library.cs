@@ -8,11 +8,11 @@ namespace LibraryCRM.Domain.Entities
 {
     public class Library
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; } = default!;
 
 
         public List<Book>? Books { get; set; }
-        public List<RentHistory>? RentHistory { get; set; }
+        public List<RentHistory>? RentHistories { get; set; }
     }
 }

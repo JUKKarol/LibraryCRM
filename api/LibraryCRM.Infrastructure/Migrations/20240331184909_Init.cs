@@ -54,10 +54,8 @@ namespace LibraryCRM.Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsAvailable = table.Column<bool>(type: "bit", nullable: false),
                     AuthorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LibraryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ClientId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    LibraryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -66,19 +64,12 @@ namespace LibraryCRM.Infrastructure.Migrations
                         name: "FK_Books_Authors_AuthorId",
                         column: x => x.AuthorId,
                         principalTable: "Authors",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Books_Clients_ClientId",
-                        column: x => x.ClientId,
-                        principalTable: "Clients",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Books_Libraries_LibraryId",
                         column: x => x.LibraryId,
                         principalTable: "Libraries",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -99,31 +90,23 @@ namespace LibraryCRM.Infrastructure.Migrations
                         name: "FK_RentHistories_Books_BookId",
                         column: x => x.BookId,
                         principalTable: "Books",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_RentHistories_Clients_ClientId",
                         column: x => x.ClientId,
                         principalTable: "Clients",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_RentHistories_Libraries_LibraryId",
                         column: x => x.LibraryId,
                         principalTable: "Libraries",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Books_AuthorId",
                 table: "Books",
                 column: "AuthorId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Books_ClientId",
-                table: "Books",
-                column: "ClientId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Books_LibraryId",
@@ -156,10 +139,10 @@ namespace LibraryCRM.Infrastructure.Migrations
                 name: "Books");
 
             migrationBuilder.DropTable(
-                name: "Authors");
+                name: "Clients");
 
             migrationBuilder.DropTable(
-                name: "Clients");
+                name: "Authors");
 
             migrationBuilder.DropTable(
                 name: "Libraries");

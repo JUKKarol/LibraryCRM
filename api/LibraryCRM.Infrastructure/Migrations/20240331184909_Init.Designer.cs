@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryCRM.Infrastructure.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    [Migration("20240330201553_Init")]
+    [Migration("20240331184909_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -53,12 +53,6 @@ namespace LibraryCRM.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("ClientId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsAvailable")
-                        .HasColumnType("bit");
-
                     b.Property<Guid>("LibraryId")
                         .HasColumnType("uniqueidentifier");
 
@@ -69,8 +63,6 @@ namespace LibraryCRM.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
-
-                    b.HasIndex("ClientId");
 
                     b.HasIndex("LibraryId");
 
@@ -144,17 +136,13 @@ namespace LibraryCRM.Infrastructure.Migrations
                     b.HasOne("LibraryCRM.Domain.Entities.Author", "Author")
                         .WithMany("Books")
                         .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.HasOne("LibraryCRM.Domain.Entities.Client", null)
-                        .WithMany("BooksInUse")
-                        .HasForeignKey("ClientId");
 
                     b.HasOne("LibraryCRM.Domain.Entities.Library", "Library")
                         .WithMany("Books")
                         .HasForeignKey("LibraryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Author");
@@ -165,21 +153,21 @@ namespace LibraryCRM.Infrastructure.Migrations
             modelBuilder.Entity("LibraryCRM.Domain.Entities.RentHistory", b =>
                 {
                     b.HasOne("LibraryCRM.Domain.Entities.Book", "Book")
-                        .WithMany("RentHistory")
+                        .WithMany("RentHistories")
                         .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("LibraryCRM.Domain.Entities.Client", "Client")
-                        .WithMany("RentHistory")
+                        .WithMany("RentHistories")
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("LibraryCRM.Domain.Entities.Library", "Library")
-                        .WithMany("RentHistory")
+                        .WithMany("RentHistories")
                         .HasForeignKey("LibraryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Book");
@@ -196,21 +184,19 @@ namespace LibraryCRM.Infrastructure.Migrations
 
             modelBuilder.Entity("LibraryCRM.Domain.Entities.Book", b =>
                 {
-                    b.Navigation("RentHistory");
+                    b.Navigation("RentHistories");
                 });
 
             modelBuilder.Entity("LibraryCRM.Domain.Entities.Client", b =>
                 {
-                    b.Navigation("BooksInUse");
-
-                    b.Navigation("RentHistory");
+                    b.Navigation("RentHistories");
                 });
 
             modelBuilder.Entity("LibraryCRM.Domain.Entities.Library", b =>
                 {
                     b.Navigation("Books");
 
-                    b.Navigation("RentHistory");
+                    b.Navigation("RentHistories");
                 });
 #pragma warning restore 612, 618
         }

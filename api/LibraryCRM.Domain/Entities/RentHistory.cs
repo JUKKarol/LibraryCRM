@@ -8,7 +8,7 @@ namespace LibraryCRM.Domain.Entities
 {
     public class RentHistory
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public DateTime RentStart { get; set; }
         public DateTime RentEnd { get; set; }
         public Guid BookId { get; set; }
