@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LibraryCRM.Application\LibraryCRM.Application.csproj" />
+    <ProjectReference Include="..\LibraryCRM.Infrastructure\LibraryCRM.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
