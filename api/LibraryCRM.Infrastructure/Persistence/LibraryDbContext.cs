@@ -8,7 +8,7 @@ using LibraryCRM.Domain.Entities;
 
 namespace LibraryCRM.Infrastructure.Persistence
 {
-    internal class LibraryDbContext : DbContext
+    internal class LibraryDbContext(DbContextOptions<LibraryDbContext> options) : DbContext(options)
     {
         internal DbSet<Library> Libraries { get; set; }
         internal DbSet<Book> Books { get; set; }
@@ -16,11 +16,6 @@ namespace LibraryCRM.Infrastructure.Persistence
         internal DbSet<Client> Clients { get; set; }
         internal DbSet<RentHistory> RentHistories { get; set; }
 
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=LibraryCRMDb;Trusted_Connection=True;");
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
