@@ -1,4 +1,5 @@
 ﻿using LibraryCRM.Infrastructure.Persistence;
+using LibraryCRM.Infrastructure.Seeders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,5 +17,7 @@ public static class ServiceCollectionExtensions
     {
         var connectionString = configuration.GetConnectionString("LibraryCRMDb");
         services.AddDbContext<LibraryDbContext>(options => options.UseSqlServer(connectionString));
+
+        services.AddScoped<ILibrarySeeder, LibrarySeeder>();
     }
 }
