@@ -1,7 +1,6 @@
 using LibraryCRM.Infrastructure.Extensions;
 using LibraryCRM.Infrastructure.Seeders;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.GetConnectionString("LibraryCRMDb");

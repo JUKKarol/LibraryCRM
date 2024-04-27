@@ -1,8 +1,7 @@
 ﻿
-namespace LibraryCRM.Infrastructure.Seeders
+namespace LibraryCRM.Infrastructure.Seeders;
+
+public interface ILibrarySeeder
 {
-    public interface ILibrarySeeder
-    {
-        Task Seed();
-    }
+    Task Seed();
 }
