@@ -17,4 +17,11 @@ internal class BookRepository(LibraryDbContext libraryDbContext) : IBookReposito
 
         return books;
     }
+
+    public async Task<Book?> GetBookById(Guid bookId)
+    {
+        var book = await libraryDbContext.Books.FirstOrDefaultAsync(b => b.Id == bookId);
+
+        return book;
+    }
 }

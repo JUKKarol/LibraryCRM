@@ -15,4 +15,11 @@ internal class BookService(IBookRepository bookRepository) : IBookService
 
         return books;
     }
+
+    public async Task<Book> GetBookById(Guid bookId)
+    {
+        var book = await bookRepository.GetBookById(bookId);
+
+        return book;
+    }
 }

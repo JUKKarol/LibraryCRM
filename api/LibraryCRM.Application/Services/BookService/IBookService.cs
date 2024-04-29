@@ -9,4 +9,5 @@ namespace LibraryCRM.Application.Services.BookService;
 public interface IBookService
 {
     Task<IEnumerable<Book>> GetBooks();
+    Task<Book> GetBookById(Guid bookId);
 }

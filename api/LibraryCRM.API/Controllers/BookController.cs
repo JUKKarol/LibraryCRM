@@ -14,12 +14,20 @@ public class BookController(IBookService bookService) : ControllerBase
         return Ok(books);
     }
 
-    //[HttpGet("{id}")]
-    //public async Task<IActionResult> GetBook(int id)
-    //{
-    //    var book = await bookService.GetBookAsync(id);
-    //    return Ok(book);
-    //}
+    [HttpGet("{bookId}")]
+    public async Task<IActionResult> GetBook([FromRoute]Guid bookId)
+    {
+        var book = await bookService.GetBookById(bookId);
+
+        if (book == null)
+        {
+            return NotFound();
+        }
+        else
+        {
+            return Ok(book);
+        }
+    }
 
     //[HttpPost]
     //public async Task<IActionResult> AddBook(Book book)
