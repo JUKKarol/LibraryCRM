@@ -1,4 +1,4 @@
-﻿using LibraryCRM.Application.Services.BookService;
+﻿using LibraryCRM.Application.Books.Service.BookService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryCRM.API.Controllers;

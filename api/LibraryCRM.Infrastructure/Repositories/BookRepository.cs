@@ -13,14 +13,20 @@ internal class BookRepository(LibraryDbContext libraryDbContext) : IBookReposito
 {
     public async Task<IEnumerable<Book>> GetAllBooks()
     {
-        var books = await libraryDbContext.Books.ToListAsync();
+        var books = await libraryDbContext.Books
+            .Include(b => b.Author)
+            .Include(b => b.Library)
+            .ToListAsync();
 
         return books;
     }
 
     public async Task<Book?> GetBookById(Guid bookId)
     {
-        var book = await libraryDbContext.Books.FirstOrDefaultAsync(b => b.Id == bookId);
+        var book = await libraryDbContext.Books
+            .Include(b => b.Author)
+            .Include(b => b.Library)
+            .FirstOrDefaultAsync(b => b.Id == bookId);
 
         return book;
     }

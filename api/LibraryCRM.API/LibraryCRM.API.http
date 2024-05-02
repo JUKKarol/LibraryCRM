@@ -4,21 +4,6 @@
 
 @LibraryCRM.API_HostAddress = https://localhost:7127
 
-GET {{LibraryCRM.API_HostAddress}}/WeatherForecast
-Accept: application/json
-ProjectUrl: {{$projectUrl}}
-Guid: {{$guid}}
-LocalDate: {{$datetime iso8601}}
-Random-int: {{$randomInt}}
-
-###
-
-POST {{LibraryCRM.API_HostAddress}}/generate?resultsCount=10
-Content-Type: application/json
-
-{
-    "min": -10,
-    "max": 20
-}
+GET {{LibraryCRM.API_HostAddress}}/api/book/8c64b4e1-1a35-4cf0-b6cf-f37c0b0a0db4
 
 ###
