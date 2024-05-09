@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using static System.Reflection.Metadata.BlobBuilder;
 
 namespace LibraryCRM.Application.Books.Service.BookService;
+
 internal class BookService(IBookRepository bookRepository, IMapper mapper) : IBookService
 {
     public async Task<IEnumerable<BookDTO>> GetBooks()
@@ -26,5 +27,13 @@ internal class BookService(IBookRepository bookRepository, IMapper mapper) : IBo
         var bookDTO = mapper.Map<BookDTO>(book);
 
         return bookDTO;
+    }
+
+    public async Task<Guid> CreateBook(CreateBookDTO bookRequestDTO)
+    {
+        var book = mapper.Map<Book>(bookRequestDTO);
+        var createdBookId = await bookRepository.CreateBook(book);
+
+        return createdBookId;
     }
 }

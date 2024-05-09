@@ -9,6 +9,7 @@ using LibraryCRM.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryCRM.Infrastructure.Repositories;
+
 internal class BookRepository(LibraryDbContext libraryDbContext) : IBookRepository
 {
     public async Task<IEnumerable<Book>> GetAllBooks()
@@ -29,5 +30,13 @@ internal class BookRepository(LibraryDbContext libraryDbContext) : IBookReposito
             .FirstOrDefaultAsync(b => b.Id == bookId);
 
         return book;
+    }
+
+    public async Task<Guid> CreateBook(Book book)
+    {
+        await libraryDbContext.Books.AddAsync(book);
+        await libraryDbContext.SaveChangesAsync();
+
+        return book.Id;
     }
 }

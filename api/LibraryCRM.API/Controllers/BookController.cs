@@ -1,4 +1,5 @@
-﻿using LibraryCRM.Application.Books.Service.BookService;
+﻿using LibraryCRM.Application.Books.DTOs;
+using LibraryCRM.Application.Books.Service.BookService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryCRM.API.Controllers;
@@ -15,7 +16,7 @@ public class BookController(IBookService bookService) : ControllerBase
     }
 
     [HttpGet("{bookId}")]
-    public async Task<IActionResult> GetBook([FromRoute]Guid bookId)
+    public async Task<IActionResult> GetBook([FromRoute] Guid bookId)
     {
         var book = await bookService.GetBookById(bookId);
 
@@ -29,12 +30,17 @@ public class BookController(IBookService bookService) : ControllerBase
         }
     }
 
-    //[HttpPost]
-    //public async Task<IActionResult> AddBook(Book book)
-    //{
-    //    var newBook = await bookService.AddBookAsync(book);
-    //    return CreatedAtAction(nameof(GetBook), new { id = newBook.Id }, newBook);
-    //}
+    [HttpPost]
+    public async Task<IActionResult> AddBook(CreateBookDTO book)
+    {
+        //check if library and author exists
+        //check validation
+
+        var createdBookId = await bookService.CreateBook(book);
+        var createdBook = await bookService.GetBookById(createdBookId);
+
+        return Ok(createdBook);
+    }
 
     //[HttpPut("{id}")]
     //public async Task<IActionResult> UpdateBook(int id, Book book)

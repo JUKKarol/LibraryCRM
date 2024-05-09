@@ -7,3 +7,20 @@
 GET {{LibraryCRM.API_HostAddress}}/api/book/8c64b4e1-1a35-4cf0-b6cf-f37c0b0a0db4
 
 ###
+
+GET {{LibraryCRM.API_HostAddress}}/api/book
+
+###
+
+POST {{LibraryCRM.API_HostAddress}}/api/book
+Content-Type: application/json
+
+{
+  "Name": "name",
+  "Category": "category",
+  "AuthorId": "25b6b620-ec90-442f-8c6b-6d1a9d14c0ff",
+  "LibraryId": "8e96e73b-99e8-4625-a7d3-d9cf9f26c828"
+}
+
+
+###
