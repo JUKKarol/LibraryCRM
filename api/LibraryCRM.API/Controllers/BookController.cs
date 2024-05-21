@@ -31,7 +31,7 @@ public class BookController(IBookService bookService) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddBook(CreateBookDTO book)
+    public async Task<IActionResult> CreateBook(CreateBookDTO book)
     {
         //check if library and author exists
         //check validation
