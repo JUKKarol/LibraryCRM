@@ -16,11 +16,11 @@ POST {{LibraryCRM.API_HostAddress}}/api/book
 Content-Type: application/json
 
 {
-  "Name": "name",
-  "Category": "category",
+  "Name": "rwerewr",
+  "Category": "",
   "AuthorId": "25b6b620-ec90-442f-8c6b-6d1a9d14c0ff",
   "LibraryId": "8e96e73b-99e8-4625-a7d3-d9cf9f26c828"
 }
 
 
-###
+
