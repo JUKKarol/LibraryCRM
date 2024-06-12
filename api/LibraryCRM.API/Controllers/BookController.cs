@@ -34,7 +34,6 @@ public class BookController(IBookService bookService) : ControllerBase
     public async Task<IActionResult> CreateBook([FromBody] CreateBookDTO book)
     {
         //check if library and author exists
-        //check validation
 
         var createdBookId = await bookService.CreateBook(book);
         var createdBook = await bookService.GetBookById(createdBookId);
