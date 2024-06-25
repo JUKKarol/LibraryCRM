@@ -1,5 +1,4 @@
-﻿
-namespace LibraryCRM.Infrastructure.Seeders;
+﻿namespace LibraryCRM.Infrastructure.Seeders;
 
 public interface ILibrarySeeder
 {

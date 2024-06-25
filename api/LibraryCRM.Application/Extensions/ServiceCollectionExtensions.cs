@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using LibraryCRM.Application.Books.Service.BookService;
-using FluentValidation;
+﻿using FluentValidation;
 using FluentValidation.AspNetCore;
+using LibraryCRM.Application.Books.Service.BookService;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace LibraryCRM.Application.Extensions;
 

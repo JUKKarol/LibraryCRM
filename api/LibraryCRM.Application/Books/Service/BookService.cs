@@ -2,12 +2,6 @@
 using LibraryCRM.Application.Books.DTOs;
 using LibraryCRM.Domain.Entities;
 using LibraryCRM.Domain.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Reflection.Metadata.BlobBuilder;
 
 namespace LibraryCRM.Application.Books.Service.BookService;
 

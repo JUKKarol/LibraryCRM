@@ -1,10 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LibraryCRM.Domain.Entities;
+﻿using LibraryCRM.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryCRM.Infrastructure.Persistence;
 
@@ -15,7 +10,6 @@ internal class LibraryDbContext(DbContextOptions<LibraryDbContext> options) : Db
     internal DbSet<Author> Authors { get; set; }
     internal DbSet<Client> Clients { get; set; }
     internal DbSet<RentHistory> RentHistories { get; set; }
-
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -28,7 +22,6 @@ internal class LibraryDbContext(DbContextOptions<LibraryDbContext> options) : Db
             l.HasMany(l => l.Books);
             l.HasMany(l => l.RentHistories);
         });
-
 
         modelBuilder.Entity<Book>(b =>
         {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LibraryCRM.Domain.Entities;
+﻿using LibraryCRM.Domain.Entities;
 using LibraryCRM.Domain.Repositories;
 using LibraryCRM.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
