@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LibraryCRM.Application.Books.Commands.CreateBook;
 using LibraryCRM.Domain.Entities;
 
 namespace LibraryCRM.Application.Books.DTOs;
@@ -7,7 +8,7 @@ internal class BooksProfile : Profile
 {
     public BooksProfile()
     {
-        CreateMap<CreateBookDTO, Book>();
+        CreateMap<CreateBookCommand, Book>();
 
         CreateMap<Book, BookDTO>()
             .ForMember(d => d.AuthorName, opt =>

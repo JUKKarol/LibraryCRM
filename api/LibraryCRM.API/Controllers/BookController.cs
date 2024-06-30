@@ -1,24 +1,27 @@
-﻿using LibraryCRM.Application.Books.DTOs;
-using LibraryCRM.Application.Books.Service.BookService;
+﻿using LibraryCRM.Application.Books.Commands.CreateBook;
+using LibraryCRM.Application.Books.DTOs;
+using LibraryCRM.Application.Books.Queries.GetAllBooks;
+using LibraryCRM.Application.Books.Queries.GetBookById;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryCRM.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class BookController(IBookService bookService) : ControllerBase
+public class BookController(IMediator mediator) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> GetBooks()
     {
-        var books = await bookService.GetBooks();
+        var books = await mediator.Send(new GetAllBooksQuery());
         return Ok(books);
     }
 
     [HttpGet("{bookId}")]
-    public async Task<IActionResult> GetBook([FromRoute] Guid bookId)
+    public async Task<IActionResult> GetBook([FromRoute] Guid id)
     {
-        var book = await bookService.GetBookById(bookId);
+        var book = await mediator.Send(new GetBookByIdQuery(id));
 
         if (book == null)
         {
@@ -31,12 +34,12 @@ public class BookController(IBookService bookService) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateBook([FromBody] CreateBookDTO book)
+    public async Task<IActionResult> CreateBook([FromBody] CreateBookCommand command)
     {
         //check if library and author exists
 
-        var createdBookId = await bookService.CreateBook(book);
-        var createdBook = await bookService.GetBookById(createdBookId);
+        var createdBookId = await mediator.Send(command);
+        var createdBook = await mediator.Send(new GetBookByIdQuery(createdBookId));
 
         return Ok(createdBook);
     }

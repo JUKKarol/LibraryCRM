@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
 using LibraryCRM.Application.Books.DTOs;
 
-namespace LibraryCRM.Application.Books.Validators;
+namespace LibraryCRM.Application.Books.Commands.CreateBook;
 
-public class CreateBookDTOValidator : AbstractValidator<CreateBookDTO>
+public class CreateBookCommandValidator : AbstractValidator<CreateBookCommand>
 {
-    public CreateBookDTOValidator()
+    public CreateBookCommandValidator()
     {
         RuleFor(x => x.Name)
             .NotEmpty()
