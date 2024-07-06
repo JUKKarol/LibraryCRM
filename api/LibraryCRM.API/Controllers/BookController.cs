@@ -1,4 +1,5 @@
 ﻿using LibraryCRM.Application.Books.Commands.CreateBook;
+using LibraryCRM.Application.Books.Commands.DeleteBook;
 using LibraryCRM.Application.Books.DTOs;
 using LibraryCRM.Application.Books.Queries.GetAllBooks;
 using LibraryCRM.Application.Books.Queries.GetBookById;
@@ -19,9 +20,9 @@ public class BookController(IMediator mediator) : ControllerBase
     }
 
     [HttpGet("{bookId}")]
-    public async Task<IActionResult> GetBook([FromRoute] Guid id)
+    public async Task<IActionResult> GetBook([FromRoute] Guid bookId)
     {
-        var book = await mediator.Send(new GetBookByIdQuery(id));
+        var book = await mediator.Send(new GetBookByIdQuery(bookId));
 
         if (book == null)
         {
@@ -51,10 +52,18 @@ public class BookController(IMediator mediator) : ControllerBase
     //    return Ok(updatedBook);
     //}
 
-    //[HttpDelete("{id}")]
-    //public async Task<IActionResult> DeleteBook(int id)
-    //{
-    //    await bookService.DeleteBookAsync(id);
-    //    return NoContent();
-    //}
+    [HttpDelete("{bookId}")]
+    public async Task<IActionResult> DeleteBook([FromRoute] Guid bookId)
+    {
+        var deletedBookId = await mediator.Send(new DeleteBookCommand(bookId));
+
+        if (deletedBookId == Guid.Empty)
+        {
+            return NotFound();
+        }
+        else
+        {
+            return Ok(deletedBookId);
+        }
+    }
 }

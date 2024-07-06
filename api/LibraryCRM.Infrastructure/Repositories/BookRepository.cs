@@ -34,4 +34,14 @@ internal class BookRepository(LibraryDbContext libraryDbContext) : IBookReposito
 
         return book.Id;
     }
+
+    public async Task<Guid> DeleteBook(Guid bookId)
+    {
+        var book = await libraryDbContext.Books.FindAsync(bookId);
+
+        libraryDbContext.Books.Remove(book);
+        await libraryDbContext.SaveChangesAsync();
+
+        return bookId;
+    }
 }
