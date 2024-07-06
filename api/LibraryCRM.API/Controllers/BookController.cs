@@ -55,15 +55,15 @@ public class BookController(IMediator mediator) : ControllerBase
     [HttpDelete("{bookId}")]
     public async Task<IActionResult> DeleteBook([FromRoute] Guid bookId)
     {
-        var deletedBookId = await mediator.Send(new DeleteBookCommand(bookId));
+        var isDeleted = await mediator.Send(new DeleteBookCommand(bookId));
 
-        if (deletedBookId == Guid.Empty)
+        if (isDeleted == false)
         {
             return NotFound();
         }
         else
         {
-            return Ok(deletedBookId);
+            return Ok();
         }
     }
 }

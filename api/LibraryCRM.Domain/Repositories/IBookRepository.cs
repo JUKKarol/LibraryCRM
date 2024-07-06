@@ -10,5 +10,5 @@ public interface IBookRepository
 
     Task<Guid> CreateBook(Book book);
 
-    Task<Guid> DeleteBook(Guid bookId);
+    Task DeleteBook(Book book);
 }

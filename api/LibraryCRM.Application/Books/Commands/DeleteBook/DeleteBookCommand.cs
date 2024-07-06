@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryCRM.Application.Books.Commands.DeleteBook;
 
-public class DeleteBookCommand(Guid id) : IRequest<Guid>
+public class DeleteBookCommand(Guid id) : IRequest<bool>
 {
     public Guid Id { get; set; } = id;
 }

@@ -11,20 +11,20 @@ using System.Threading.Tasks;
 namespace LibraryCRM.Application.Books.Commands.DeleteBook;
 
 public class DeleteBookCommandHandler(IMapper mapper,
-    IBookRepository bookRepository) : IRequestHandler<DeleteBookCommand, Guid>
+    IBookRepository bookRepository) : IRequestHandler<DeleteBookCommand, bool>
 {
-    public async Task<Guid> Handle(DeleteBookCommand request, CancellationToken cancellationToken)
+    public async Task<bool> Handle(DeleteBookCommand request, CancellationToken cancellationToken)
     {
         var book = await bookRepository.GetBookById(request.Id);
 
         if (book == null)
         {
-            return Guid.Empty;
+            return false;
         }
         else
         {
-            await bookRepository.DeleteBook(request.Id);
-            return book.Id;
+            await bookRepository.DeleteBook(book);
+            return true;
         }
     }
 }
