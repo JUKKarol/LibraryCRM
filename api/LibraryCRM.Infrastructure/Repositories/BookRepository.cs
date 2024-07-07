@@ -35,6 +35,24 @@ internal class BookRepository(LibraryDbContext libraryDbContext) : IBookReposito
         return book.Id;
     }
 
+    public async Task<Book?> UpdateBook(Book updatedBook)
+    {
+        var book = await libraryDbContext.Books
+            .FirstOrDefaultAsync(c => c.Id == updatedBook.Id);
+
+        updatedBook.Name = book.Name;
+        updatedBook.Category = book.Category;
+        updatedBook.AuthorId = book.AuthorId;
+        updatedBook.LibraryId = book.LibraryId;
+
+        var entry = libraryDbContext.Entry(book);
+        entry.CurrentValues.SetValues(updatedBook);
+
+        await libraryDbContext.SaveChangesAsync();
+
+        return book;
+    }
+
     public async Task DeleteBook(Book book)
     {
         libraryDbContext.Books.Remove(book);
