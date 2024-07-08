@@ -10,7 +10,7 @@ public interface IBookRepository
 
     Task<Guid> CreateBook(Book book);
 
-    Task<Book?> UpdateBook(Book updatedBook);
+    Task UpdateBook(Book updatedBook);
 
     Task DeleteBook(Book book);
 }
