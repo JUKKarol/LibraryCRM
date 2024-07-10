@@ -40,13 +40,10 @@ internal class BookRepository(LibraryDbContext libraryDbContext) : IBookReposito
         var book = await libraryDbContext.Books
             .FirstOrDefaultAsync(c => c.Id == updatedBook.Id);
 
-        updatedBook.Name = book.Name;
-        updatedBook.Category = book.Category;
-        updatedBook.AuthorId = book.AuthorId;
-        updatedBook.LibraryId = book.LibraryId;
-
-        var entry = libraryDbContext.Entry(book);
-        entry.CurrentValues.SetValues(updatedBook);
+        book.Name = updatedBook.Name;
+        book.Category = updatedBook.Category;
+        book.AuthorId = updatedBook.AuthorId;
+        book.LibraryId = updatedBook.LibraryId;
 
         await libraryDbContext.SaveChangesAsync();
     }

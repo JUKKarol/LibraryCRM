@@ -1,5 +1,6 @@
 ﻿using LibraryCRM.Application.Books.Commands.CreateBook;
 using LibraryCRM.Application.Books.Commands.DeleteBook;
+using LibraryCRM.Application.Books.Commands.UpdateBook;
 using LibraryCRM.Application.Books.DTOs;
 using LibraryCRM.Application.Books.Queries.GetAllBooks;
 using LibraryCRM.Application.Books.Queries.GetBookById;
@@ -45,12 +46,22 @@ public class BookController(IMediator mediator) : ControllerBase
         return Ok(createdBook);
     }
 
-    //[HttpPut("{id}")]
-    //public async Task<IActionResult> UpdateBook(int id, Book book)
-    //{
-    //    var updatedBook = await bookService.UpdateBookAsync(id, book);
-    //    return Ok(updatedBook);
-    //}
+    [HttpPut]
+    public async Task<IActionResult> UpdateBook([FromBody] UpdateBookCommand command)
+    {
+        //check if library and author exists
+
+        var isSuccess = await mediator.Send(command);
+
+        if (isSuccess == false)
+        {
+            return BadRequest();
+        }
+
+        var updatedBook = await mediator.Send(new GetBookByIdQuery(command.Id));
+
+        return Ok(updatedBook);
+    }
 
     [HttpDelete("{bookId}")]
     public async Task<IActionResult> DeleteBook([FromRoute] Guid bookId)
