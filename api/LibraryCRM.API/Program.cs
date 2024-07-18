@@ -15,12 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 builder.Host.UseSerilog((context, configuration) =>
-    configuration
-        .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-        .ReadFrom.Configuration(context.Configuration)
-        .Enrich.FromLogContext()
-        .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] |{SourceContext}| {Message:lj}{NewLine}{Exception}")
-        .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
+    configuration.ReadFrom.Configuration(context.Configuration)
 );
 
 var app = builder.Build();
