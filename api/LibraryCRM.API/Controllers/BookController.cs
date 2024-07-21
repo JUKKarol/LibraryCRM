@@ -14,14 +14,14 @@ namespace LibraryCRM.API.Controllers;
 public class BookController(IMediator mediator) : ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> GetBooks()
+    public async Task<ActionResult<IEnumerable<BookDTO>>> GetBooks()
     {
         var books = await mediator.Send(new GetAllBooksQuery());
         return Ok(books);
     }
 
     [HttpGet("{bookId}")]
-    public async Task<IActionResult> GetBook([FromRoute] Guid bookId)
+    public async Task<ActionResult<BookDTO>> GetBook([FromRoute] Guid bookId)
     {
         var book = await mediator.Send(new GetBookByIdQuery(bookId));
 
@@ -36,7 +36,7 @@ public class BookController(IMediator mediator) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateBook([FromBody] CreateBookCommand command)
+    public async Task<ActionResult<BookDTO>> CreateBook([FromBody] CreateBookCommand command)
     {
         //check if library and author exists
 
@@ -47,6 +47,8 @@ public class BookController(IMediator mediator) : ControllerBase
     }
 
     [HttpPut]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> UpdateBook([FromBody] UpdateBookCommand command)
     {
         //check if library and author exists
@@ -64,6 +66,8 @@ public class BookController(IMediator mediator) : ControllerBase
     }
 
     [HttpDelete("{bookId}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> DeleteBook([FromRoute] Guid bookId)
     {
         var isDeleted = await mediator.Send(new DeleteBookCommand(bookId));
