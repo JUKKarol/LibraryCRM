@@ -1,3 +1,4 @@
+using LibraryCRM.API.Middlewares;
 using LibraryCRM.Application.Extensions;
 using LibraryCRM.Infrastructure.Extensions;
 using LibraryCRM.Infrastructure.Seeders;
@@ -12,6 +13,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
+
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 builder.Host.UseSerilog((context, configuration) =>
@@ -23,6 +26,8 @@ var app = builder.Build();
 var scope = app.Services.CreateScope();
 var seeder = scope.ServiceProvider.GetRequiredService<ILibrarySeeder>();
 await seeder.Seed();
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
