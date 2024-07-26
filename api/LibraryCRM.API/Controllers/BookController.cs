@@ -25,14 +25,7 @@ public class BookController(IMediator mediator) : ControllerBase
     {
         var book = await mediator.Send(new GetBookByIdQuery(bookId));
 
-        if (book == null)
-        {
-            return NotFound();
-        }
-        else
-        {
-            return Ok(book);
-        }
+        return Ok(book);
     }
 
     [HttpPost]
@@ -53,12 +46,7 @@ public class BookController(IMediator mediator) : ControllerBase
     {
         //check if library and author exists
 
-        var isSuccess = await mediator.Send(command);
-
-        if (isSuccess == false)
-        {
-            return BadRequest();
-        }
+        await mediator.Send(command);
 
         var updatedBook = await mediator.Send(new GetBookByIdQuery(command.Id));
 
@@ -70,15 +58,8 @@ public class BookController(IMediator mediator) : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> DeleteBook([FromRoute] Guid bookId)
     {
-        var isDeleted = await mediator.Send(new DeleteBookCommand(bookId));
+        await mediator.Send(new DeleteBookCommand(bookId));
 
-        if (isDeleted == false)
-        {
-            return NotFound();
-        }
-        else
-        {
-            return Ok();
-        }
+        return Ok();
     }
 }

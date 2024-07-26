@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryCRM.Application.Books.Commands.UpdateBook;
 
-public class UpdateBookCommand : IRequest<bool>
+public class UpdateBookCommand : IRequest
 {
     public Guid Id { get; set; }
     public string Name { get; set; }
