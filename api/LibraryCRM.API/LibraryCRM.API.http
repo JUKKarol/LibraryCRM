@@ -2,6 +2,10 @@
 @port = 7127
 @LibraryCRM_API_HostAddress = HTTPS://{{host}}:{{port}}
 
-GET {{LibraryCRM_API_HostAddress}}/api/book/3fa85f64-5717-4562-b3fc-2c963f66afa6
+GET {{LibraryCRM_API.HostAddress}}/api/book/3fa85f64-5717-4562-b3fc-2c963f66afa6
+
+###
+
+GET {{LibraryCRM_API_HostAddress}}/api/book
 
 ###
