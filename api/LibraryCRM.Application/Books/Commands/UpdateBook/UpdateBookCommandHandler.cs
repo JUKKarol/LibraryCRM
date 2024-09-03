@@ -3,11 +3,6 @@ using LibraryCRM.Domain.Entities;
 using LibraryCRM.Domain.Exceptions;
 using LibraryCRM.Domain.Repositories;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryCRM.Application.Books.Commands.UpdateBook;
 

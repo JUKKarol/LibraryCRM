@@ -1,5 +1,4 @@
 ﻿using LibraryCRM.Domain.Exceptions;
-using Microsoft.Extensions.Logging;
 
 namespace LibraryCRM.API.Middlewares;
 

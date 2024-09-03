@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using LibraryCRM.Application.Books.DTOs;
 
 namespace LibraryCRM.Application.Books.Commands.CreateBook;
 

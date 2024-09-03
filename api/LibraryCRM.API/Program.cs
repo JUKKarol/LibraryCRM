@@ -3,7 +3,6 @@ using LibraryCRM.Application.Extensions;
 using LibraryCRM.Infrastructure.Extensions;
 using LibraryCRM.Infrastructure.Seeders;
 using Serilog;
-using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
