@@ -1,9 +1,10 @@
 ﻿using LibraryCRM.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace LibraryCRM.Infrastructure.Persistence;
 
-internal class LibraryDbContext(DbContextOptions<LibraryDbContext> options) : DbContext(options)
+internal class LibraryDbContext(DbContextOptions<LibraryDbContext> options) : IdentityDbContext<LibraryUser>(options)
 {
     internal DbSet<Library> Libraries { get; set; }
     internal DbSet<Book> Books { get; set; }

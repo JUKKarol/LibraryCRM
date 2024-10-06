@@ -1,4 +1,5 @@
-﻿using LibraryCRM.Domain.Repositories;
+﻿using LibraryCRM.Domain.Entities;
+using LibraryCRM.Domain.Repositories;
 using LibraryCRM.Infrastructure.Persistence;
 using LibraryCRM.Infrastructure.Repositories;
 using LibraryCRM.Infrastructure.Seeders;
@@ -14,6 +15,9 @@ public static class ServiceCollectionExtensions
     {
         var connectionString = configuration.GetConnectionString("LibraryCRMDb");
         services.AddDbContext<LibraryDbContext>(options => options.UseSqlServer(connectionString));
+
+        services.AddIdentityApiEndpoints<LibraryUser>()
+            .AddEntityFrameworkStores<LibraryDbContext>();
 
         services.AddScoped<ILibrarySeeder, LibrarySeeder>();
         services.AddScoped<IBookRepository, BookRepository>();

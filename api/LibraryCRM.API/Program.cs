@@ -1,5 +1,6 @@
 using LibraryCRM.API.Middlewares;
 using LibraryCRM.Application.Extensions;
+using LibraryCRM.Domain.Entities;
 using LibraryCRM.Infrastructure.Extensions;
 using LibraryCRM.Infrastructure.Seeders;
 using Serilog;
@@ -37,6 +38,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapIdentityApi<LibraryUser>();
 
 app.UseAuthorization();
 
