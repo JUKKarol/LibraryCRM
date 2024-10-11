@@ -19,19 +19,19 @@ public static class WebApplicationBuilderExtensions
             });
 
             c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
             {
-                Reference = new OpenApiReference
                 {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "bearerAuth"
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "bearerAuth"
+                        }
+                    },
+                    []
                 }
-            },
-            []
-        }
-    });
+            });
         });
 
         builder.Services.AddScoped<ErrorHandlingMiddleware>();
