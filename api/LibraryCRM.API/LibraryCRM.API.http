@@ -1,10 +1,23 @@
 @host = localhost
 @port = 7127
-@LibraryCRM_API_HostAddress = HTTPS://{{host}}:{{port}}
+@token = CfDJ8P8c432LlV5HjNPl9Yy6Z5Jv6iPeMg2Fnr0XzkCukvqyAn9D3hRdOMVLapNyGsVMWgawLEY41OdeH47_ezBIjnprLeqD77VSjpTQQFLoeZmkiDKFRkVYHgBmDCfDvouIOwytgORQFegDW8r71L-1HUYbR6hRT_XlKzZluo9CZQbOFgOHgFVlr5DyfEJc0h1dU0KKJ3IYr-0WMmA6iA2mWupql4W00OYPO-jywGooWfugqVYsHItMArVljDoeLHokwdu96djVvUJ0--PAKPmb3a9tygbun8ZcnuQziHGYISQOBBN7UZ_TDBbUKlcVbA0dm16-qKkIVAziwprygZ53jkpj9NJyP0wKD1F6-v-anrx7AhsHjNngfKE2RmzYpkthmN_sByh6bS3pHw7tT5nhMHcBJgl9zqFTaeTZxlbq1JOx8aJQWFJWIQBtC0A4Uydtf2OMGlEuuUZOACpmk7GpB3AWRWVawdTXt-kUPbF_69XbARZ-FDrrfPEkMnrdsgVUukUIRe679mJGzEhOF0xrRAMVJMJ3aLO702Vlp0zpgwBKXjraiPxs6OfN3YERRkpf8G-xtrW3wG7YHBW5yUReF__uGwfcLa_rvl0ZOC88xa5HderpNNGXLRxrQIleeOtvPaYgDpVg3M8fzxoa_J7n7Y8CE0lIw-q3aH9Iq3K8LdRpkeHEYlzNowqKK1hv0keQdA
 
-GET {{LibraryCRM_API.HostAddress}}/api/book/3fa85f64-5717-4562-b3fc-2c963f66afa6
+@LibraryCRM_API_HostAddress = https://localhost:7127
+
+GET {{LibraryCRM_API_HostAddress}}/api/book/3fa85f64-5717-4562-b3fc-2c963f66afa6
+Authorization: Bearer {{token}}
+###
+
+POST {{LibraryCRM_API_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "string1@wp.pl",
+  "password": "stringA!1"
+}
 
 ###
+
 
 GET {{LibraryCRM_API_HostAddress}}/api/book
 

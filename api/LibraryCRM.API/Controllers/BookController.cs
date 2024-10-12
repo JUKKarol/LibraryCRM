@@ -5,15 +5,18 @@ using LibraryCRM.Application.Books.DTOs;
 using LibraryCRM.Application.Books.Queries.GetAllBooks;
 using LibraryCRM.Application.Books.Queries.GetBookById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryCRM.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class BookController(IMediator mediator) : ControllerBase
 {
     [HttpGet]
+    [AllowAnonymous]
     public async Task<ActionResult<IEnumerable<BookDTO>>> GetBooks()
     {
         var books = await mediator.Send(new GetAllBooksQuery());
