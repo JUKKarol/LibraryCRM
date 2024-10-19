@@ -31,7 +31,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGroup("/api/auth").MapIdentityApi<LibraryUser>();
+app.MapGroup("/api/auth")
+    .WithTags("Auth")
+    .MapIdentityApi<LibraryUser>();
 
 app.UseAuthorization();
 

@@ -1,13 +1,13 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryCRM.Domain.Entities;
+namespace LibraryCRM.Application.User.Commands;
 
-public class LibraryUser : IdentityUser
+public class UpdateUserDetailsCommand : IRequest
 {
     public DateOnly? DateOfBirth { get; set; }
 }
