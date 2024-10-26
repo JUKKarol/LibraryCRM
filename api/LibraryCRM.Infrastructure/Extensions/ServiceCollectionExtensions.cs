@@ -3,6 +3,7 @@ using LibraryCRM.Domain.Repositories;
 using LibraryCRM.Infrastructure.Persistence;
 using LibraryCRM.Infrastructure.Repositories;
 using LibraryCRM.Infrastructure.Seeders;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ public static class ServiceCollectionExtensions
         services.AddDbContext<LibraryDbContext>(options => options.UseSqlServer(connectionString));
 
         services.AddIdentityApiEndpoints<LibraryUser>()
+            .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<LibraryDbContext>();
 
         services.AddScoped<ILibrarySeeder, LibrarySeeder>();

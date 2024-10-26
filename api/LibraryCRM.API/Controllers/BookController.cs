@@ -4,6 +4,7 @@ using LibraryCRM.Application.Books.Commands.UpdateBook;
 using LibraryCRM.Application.Books.DTOs;
 using LibraryCRM.Application.Books.Queries.GetAllBooks;
 using LibraryCRM.Application.Books.Queries.GetBookById;
+using LibraryCRM.Domain.Constants;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,7 @@ public class BookController(IMediator mediator) : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = UserRoles.Owner)]
     public async Task<ActionResult<BookDTO>> CreateBook([FromBody] CreateBookCommand command)
     {
         //check if library and author exists
