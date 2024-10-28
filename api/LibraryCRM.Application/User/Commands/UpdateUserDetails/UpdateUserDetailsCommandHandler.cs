@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryCRM.Application.User.Commands;
+namespace LibraryCRM.Application.User.Commands.UpdateUserDetails;
 
 public class UpdateUserDetailsCommandHandler(IUserContext userContext,
     IUserStore<LibraryUser> userStore) : IRequestHandler<UpdateUserDetailsCommand>
