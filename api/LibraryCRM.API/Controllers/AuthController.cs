@@ -26,4 +26,12 @@ public class AuthController(IMediator mediator) : ControllerBase
         await mediator.Send(command);
         return NoContent();
     }
+
+    [HttpDelete("userRole")]
+    [Authorize(Roles = UserRoles.Admin)]
+    public async Task<IActionResult> UnAssignUserRole(UnAssignUserRoleCommand command)
+    {
+        await mediator.Send(command);
+        return NoContent();
+    }
 }
