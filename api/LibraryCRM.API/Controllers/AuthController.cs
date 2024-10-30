@@ -1,4 +1,5 @@
-﻿using LibraryCRM.Application.User.Commands.AssignUserRoleCommand;
+﻿using LibraryCRM.Application.User.Commands.AssignUserRole;
+using LibraryCRM.Application.User.Commands.UnAssignUserRole;
 using LibraryCRM.Application.User.Commands.UpdateUserDetails;
 using LibraryCRM.Domain.Constants;
 using MediatR;

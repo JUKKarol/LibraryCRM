@@ -8,12 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryCRM.Application.User.Commands.AssignUserRoleCommand;
+namespace LibraryCRM.Application.User.Commands.UnAssignUserRole;
 
-public class AssignUserRoleCommandHandler(UserManager<LibraryUser> userManager,
-    RoleManager<IdentityRole> roleManager) : IRequestHandler<AssignUserRoleCommand>
+public class UnAssignUserRoleCommandHandler(UserManager<LibraryUser> userManager,
+    RoleManager<IdentityRole> roleManager) : IRequestHandler<UnAssignUserRoleCommand>
 {
-    public async Task Handle(AssignUserRoleCommand request, CancellationToken cancellationToken)
+    public async Task Handle(UnAssignUserRoleCommand request, CancellationToken cancellationToken)
     {
         var user = await userManager.FindByEmailAsync(request.Email)
             ?? throw new NotFoundException(nameof(LibraryUser), request.Email);
@@ -21,6 +21,6 @@ public class AssignUserRoleCommandHandler(UserManager<LibraryUser> userManager,
         var role = await roleManager.FindByNameAsync(request.Role)
             ?? throw new NotFoundException(nameof(IdentityRole), request.Role);
 
-        await userManager.AddToRoleAsync(user, role.Name);
+        await userManager.RemoveFromRoleAsync(user, role.Name);
     }
 }
